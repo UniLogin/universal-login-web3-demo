@@ -21,7 +21,11 @@ function sendTransaction() {
     to: '0x7ffC57839B00206D1ad20c69A1981b489f772031',
     value: '500000000000000',
   })
-    .then(console.log, console.error);
+    .then(receipt => {
+      console.log(receipt);
+
+      alert(`Transaction completed. Tx hash: ${receipt.transactionHash}`)
+    }, console.error);
 }
 
 document.getElementById('send-btn').addEventListener("click", sendTransaction);
