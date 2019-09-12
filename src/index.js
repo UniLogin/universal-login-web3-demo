@@ -15,9 +15,14 @@ const universalLogin = new ULWeb3Provider(
 
 const web3 = new Web3(universalLogin);
 
-web3.eth.sendTransaction({
-  from: '0x0000000000000000000000000000000000000000',
-  to: '0x7ffC57839B00206D1ad20c69A1981b489f772031',
-  value: '500000000000000',
-})
-  .then(console.log, console.error);
+function sendTransaction() {
+  web3.eth.sendTransaction({
+    from: '0x0000000000000000000000000000000000000000',
+    to: '0x7ffC57839B00206D1ad20c69A1981b489f772031',
+    value: '500000000000000',
+  })
+    .then(console.log, console.error);
+}
+
+document.getElementById('send-btn').addEventListener("click", sendTransaction);
+
